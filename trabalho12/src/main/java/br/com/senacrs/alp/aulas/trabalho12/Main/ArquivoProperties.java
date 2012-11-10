@@ -15,7 +15,13 @@ public class ArquivoProperties {
 	String token = "=";
 	//String config_dir = null;
 	//String config_dir = System.getProperty("user.dir") + File.separatorChar;
-	String config_dir = System
+	String DIRETORIO_HTML = System
+			.getProperty("user.dir")
+			+ File.separatorChar
+			+ "html"
+			+ File.separatorChar;
+
+	String DIRETORIO_CONFIG = System
 			.getProperty("user.dir")
 			+ File.separatorChar
 			+ "config"
@@ -71,6 +77,7 @@ public class ArquivoProperties {
 						key = arrKeyValue[0].trim();
 						value = arrKeyValue[1].trim();
 
+						
 						map.put(key, value);
 
 					}
@@ -78,6 +85,7 @@ public class ArquivoProperties {
 				
 				validation.validaDadosConfig(map);
 				port = Integer.valueOf((map.get(keyPort)));
+				 
 				
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -92,9 +100,37 @@ public class ArquivoProperties {
 			}
 		}
 
-		System.out.println(port + ":" + config_dir);
+//		System.out.println(port + ":" + DIRETORIO_CONFIG);
+//		System.out.println(port + ":" + DIRETORIO_HTML);
+		
 
 	}
 
+	public String getDIRETORIO_HTML() {
+		return DIRETORIO_HTML;
+	}
+
+	public void setDIRETORIO_HTML(String dIRETORIO_HTML) {
+		DIRETORIO_HTML = dIRETORIO_HTML;
+	}
+
+	public String getDIRETORIO_CONFIG() {
+		return DIRETORIO_CONFIG;
+	}
+
+	public void setDIRETORIO_CONFIG(String dIRETORIO_CONFIG) {
+		DIRETORIO_CONFIG = dIRETORIO_CONFIG;
+	}
+
+	public Integer getPort() {
+		return port;
+	}
+
+	public void setPort(Integer port) {
+		this.port = port;
+	}
+
+	
+	
 	
 }

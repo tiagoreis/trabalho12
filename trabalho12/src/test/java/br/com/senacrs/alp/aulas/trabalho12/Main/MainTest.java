@@ -14,12 +14,17 @@ public class MainTest {
 	private final static String NOME_ARQUIVO_CONFIG_INVALIDO= "config_invalido.properties";
 	private final static String NOME_ARQUIVO_CONFIG_PORTA_INVALIDA = "config_porta_invalida.properties";
 	
+	private final static String NOME_ARQUIVO_HTTP 		= "http.properties";
+	//private final static String NOME_ARQUIVO_HTTP 		= null;
+	
+
+	
 	@SuppressWarnings("static-access")
 	@Test
 	public void testArgumento(){
 		
 		Main main = new Main();
-		String[] args = {NOME_ARQUIVO_CONFIG};
+		String[] args = {NOME_ARQUIVO_CONFIG, NOME_ARQUIVO_HTTP};
 		
 		try {
 			main.main(args);
@@ -29,7 +34,7 @@ public class MainTest {
 		
 	}
 	
-	@SuppressWarnings("static-access")
+/*	@SuppressWarnings("static-access")
 	@Test
 	public void testDoisArgumentos(){
 		
@@ -44,7 +49,7 @@ public class MainTest {
 		}
 		
 	}
-	
+*/	
 	@SuppressWarnings("static-access")
 	@Test
 	public void testArgumentoNull(){
@@ -139,4 +144,8 @@ public class MainTest {
 		}
 		
 	}
+
+
+
+
 }

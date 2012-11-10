@@ -14,43 +14,68 @@ public class Validation {
 			+ "config"
 			+ File.separatorChar;
 
-
-	//Map<String, String> map = new HashMap<String, String>();
-	String config_dir = System
+	private final static String DIRETORIO_HTTP = System
 			.getProperty("user.dir")
 			+ File.separatorChar
-			+ "config"
+			+ "html"
 			+ File.separatorChar;
 
+
+	//Map<String, String> map = new HashMap<String, String>();
+
 	Integer port = null;
-	String keyRootDir = "root_dir";
+	String keyRootConfig = "root_dir";
 	String keyPort = "port";
+
+	String keyGet = "get";
+	String keyHost = "host";
 
 	public static void validaArgumento(String[] args) {
 
 		ArquivoProperties arquivoProperties = null;
-		String argumento = null;
-		File arquivo = null;
+		String argumentoConfig = null;
+		String argumentoHttp = null;
+		File arquivoConfig = null;
+		File arquivoHttp = null;
+		
 
 		arquivoProperties = new ArquivoProperties();
 
-		if (args == null || args.length != 1) {
+		if (args == null) {
 			throw new IllegalArgumentException();
 		}
 
-		argumento = args[0];
+		argumentoConfig = args[0];
+		argumentoHttp = args[1];
 
+		// FAZER VALIDACAO
 		if (args[0] == null) {
 			throw new IllegalArgumentException();
 		}
 
-		arquivo = new File(DIRETORIO_CONFIG + argumento);
+		arquivoConfig = new File(DIRETORIO_CONFIG + argumentoConfig);
+		arquivoHttp = new File(DIRETORIO_HTTP + argumentoHttp);
 
-		if (arquivo.isDirectory() || !arquivo.exists()) {
+		if (arquivoConfig.isDirectory() || !arquivoConfig.exists()) {
 			throw new IllegalArgumentException();
 		}
 
-		arquivoProperties.lerArquivo(arquivo);
+
+		
+		try {
+			arquivoProperties.lerArquivo(arquivoConfig);
+			System.out.println(arquivoProperties.getPort() + ":" + arquivoProperties.getDIRETORIO_CONFIG());
+		} catch (Exception e) {
+			throw new IllegalArgumentException(e);
+		}
+		
+		try {
+			arquivoProperties.lerArquivo(arquivoHttp);			
+			System.out.println(arquivoProperties.getPort() + ":" + arquivoProperties.getDIRETORIO_HTML());
+		} catch (Exception e) {
+			throw new IllegalArgumentException(e);
+		}		
+
 
 	}
 
