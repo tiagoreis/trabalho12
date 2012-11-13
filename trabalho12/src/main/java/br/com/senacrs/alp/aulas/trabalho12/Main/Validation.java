@@ -47,14 +47,15 @@ public class Validation {
 
 		argumentoConfig = args[0];
 		argumentoHttp = args[1];
-
-		// FAZER VALIDACAO
+		
+		
+		//TODO FAZER VALIDACAO
 		if (args[0] == null) {
 			throw new IllegalArgumentException();
 		}
 
 		arquivoConfig = new File(DIRETORIO_CONFIG + argumentoConfig);
-		arquivoHttp = new File(DIRETORIO_HTTP + argumentoHttp);
+		arquivoHttp = new File(DIRETORIO_CONFIG + argumentoHttp);
 
 		if (arquivoConfig.isDirectory() || !arquivoConfig.exists()) {
 			throw new IllegalArgumentException();
@@ -63,14 +64,14 @@ public class Validation {
 
 		
 		try {
-			arquivoProperties.lerArquivo(arquivoConfig);
+			arquivoProperties.lerArquivoConfig(arquivoConfig);
 			System.out.println(arquivoProperties.getPort() + ":" + arquivoProperties.getDIRETORIO_CONFIG());
 		} catch (Exception e) {
 			throw new IllegalArgumentException(e);
 		}
 		
 		try {
-			arquivoProperties.lerArquivo(arquivoHttp);			
+			arquivoProperties.lerArquivoConfig(arquivoHttp);			
 			System.out.println(arquivoProperties.getPort() + ":" + arquivoProperties.getDIRETORIO_HTML());
 		} catch (Exception e) {
 			throw new IllegalArgumentException(e);

@@ -7,9 +7,13 @@ public class Main {
 
 		Validation validation = null;
 		validation = new Validation();
+		ArquivoProperties arquivoProperties = null;
+		arquivoProperties = new ArquivoProperties();
 		
 		try {
-			validation.validaArgumento(args);
+			arquivoProperties.validaArgumento(args);
+			
+			
 		} catch (Exception e) {
 			System.out.println("Erro");
 			throw new IllegalArgumentException();

@@ -14,7 +14,7 @@ public class MainTest {
 	private final static String NOME_ARQUIVO_CONFIG_INVALIDO= "config_invalido.properties";
 	private final static String NOME_ARQUIVO_CONFIG_PORTA_INVALIDA = "config_porta_invalida.properties";
 	
-	private final static String NOME_ARQUIVO_HTTP 		= "http.properties";
+	private final static String NOME_ARQUIVO_REQUISICAO 		= "requisicao.properties";
 	//private final static String NOME_ARQUIVO_HTTP 		= null;
 	
 
@@ -24,7 +24,7 @@ public class MainTest {
 	public void testArgumento(){
 		
 		Main main = new Main();
-		String[] args = {NOME_ARQUIVO_CONFIG, NOME_ARQUIVO_HTTP};
+		String[] args = {NOME_ARQUIVO_CONFIG, NOME_ARQUIVO_REQUISICAO};
 		
 		try {
 			main.main(args);
